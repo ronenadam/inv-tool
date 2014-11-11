@@ -1,0 +1,45 @@
+/* Sticky footer from: http://getbootstrap.com/examples/sticky-footer-naavbar/ */
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+  padding-top: 70px;
+  color: #000000;
+  font-family: 'Montserrat', san-serif;
+  font-weight: 400;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-family: 'Montserrat', san-serif;
+}
+
+ul {
+   list-style-type:none
+}
+
+.brand {
+   color: #FFFFFF;
+   font-family: 'Montserrat', serif;
+   font-weight: 700;
+}
+
+.navbar {
+   background-color: #000000;
+}
+
+thead {
+   background-color: #888888;
+   color: #FFFFFF;
+   font-weight: normal;
+   font-size: 12px;
+}
