@@ -65,37 +65,87 @@
    </head> 
    <body>
       <div id="header"><?php include("../html/header.html") ?></div>
-      <div class="col-xs-4"></div>
-      <div class="col-xs-4">        
-         <form action="./add-item.php" method="POST">
-            <div class="page-header text-center"><h4>Please describe your item.</h4></div>
-            <br>
+      <div class="row">
+         <div class="col-xs-4"></div>
+            <div class="col-xs-4">
+               <div class="page-header text-center" style="clear: left"><h4>Please describe your item.</h4></div>
+            </div>
+         <div class="col-xs-4"></div>
+      </div>
+      <form action="./add-item.php" method="POST">
+         <div class="row">
             <input type="hidden" name="id" value="<?= $item['item_id'] ?>">
-            Name<br>
-            <input type="text" name="name" class="form-control input-sm" value="<?= $item['item_name'] ?>"><br>
-            Price<br>
-            <input type="text" name="price" class="form-control input-sm" value="<?= $item['item_price'] ?>"><br>
-            Color<br>
-            <input type="text" name="color" class="form-control input-sm" value="<?= $item['item_color'] ?>"><br>
-            Condition<br>
-            <select name="condition" class="form-control input-sm">
-               <option value=""></option>
-               <option value="NEW" <?= $item['item_condition'] === 'NEW' ? "selected" : "" ?>>New</option>
-               <option value="LIKE_NEW" <?= $item['item_condition'] === 'LIKE_NEW' ? "selected" : "" ?>>Like New</option>
-               <option value="GENTLY_USED" <?= $item['item_condition'] === 'GENTLY_USED' ? "selected" : "" ?>>Gently Used</option>
-               <option value="MODERATE_WEAR" <?= $item['item_condition'] === 'MODERATE_WEAR' ? "selected" : "" ?>>Moderate Wear</option>
-            </select>
-            <br>
-            <input class="btn-link" type="submit" value="Save item" id="save_item">
-            <a href="./index.php" id="cancel_new_item">Cancel</a>
-         </form>
+            <div class="row">
+               <div class="col-xs-4"></div>
+               <div class="col-xs-4">
+                  Name<br>
+                  <input type="text" name="name" class="form-control input-sm" value="<?= $item['item_name'] ?>"><br>
+               </div>   
+               <div class="col-xs-4">
+                  <br>name
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-xs-4"></div>
+               <div class="col-xs-4">
+                  Price<br>
+                  <input type="text" name="price" class="form-control input-sm" value="<?= $item['item_price'] ?>"><br>
+               </div>
+               <div class="col-xs-4">
+                  <br>price
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-xs-4"></div>
+               <div class="col-xs-4">
+                  Color<br>
+                  <input type="text" name="color" class="form-control input-sm" value="<?= $item['item_color'] ?>"><br>
+               </div>   
+               <div class="col-xs-4">
+                  <br>color
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-xs-4"></div>
+               <div class="col-xs-4">
+                  Condition<br>
+                  <select name="condition" class="form-control input-sm">
+                     <option value=""></option>
+                     <option value="NEW" <?= $item['item_condition'] === 'NEW' ? "selected" : "" ?>>New</option>
+                     <option value="LIKE_NEW" <?= $item['item_condition'] === 'LIKE_NEW' ? "selected" : "" ?>>Like New</option>
+                     <option value="GENTLY_USED" <?= $item['item_condition'] === 'GENTLY_USED' ? "selected" : "" ?>>Gently Used</option>
+                     <option value="MODERATE_WEAR" <?= $item['item_condition'] === 'MODERATE_WEAR' ? "selected" : "" ?>>Moderate Wear</option>
+                  </select>
+               </div>
+               <div class="col-xs-4">
+                  <br>condition
+               </div>
+            </div>
+         </div>
+         <br>
+         <div class="row">
+            <div class="col-xs-4"></div> 
+            <div class="col-xs-1">
+               <input class="btn-link" type="submit" value="Save item" id="save_item">
+            </div>
+            <div class="col-xs-1 href-text-align-with-button-text">
+               <a href="./index.php" id="cancel_new_item">Cancel</a>
+            </div>
+         </div>
+      </form>
          <?php
             if ($display_error) {
-               echo "<br><div class='alert alert-danger text-center' id='error_message'>
-                  <p>Item was not saved.<br><br>Please fill in all fields.</p></div>";
+               echo "<br>
+                  <div class='row'>
+                     <div class='col-xs-4'></div>
+                     <div class='col-xs-4'>
+                        <div class='alert alert-danger text-center' id='error_message'>
+                           <p>Item was not saved.<br><br>Please fill in all fields.</p>
+                        </div>
+                     </div>
+               ";
             }
          ?>
-      </div>
       <div class="col-xs-4"></div>
       <div id="footer"><?php include("../html/footer.html") ?></div>
    </body>

@@ -29,7 +29,7 @@ ul {
 
 .brand {
    color: #FFFFFF;
-   font-family: 'Montserrat', serif;
+   font-family: 'Montserrat', san-serif;
    font-weight: 700;
 }
 
@@ -42,4 +42,8 @@ thead {
    color: #FFFFFF;
    font-weight: normal;
    font-size: 12px;
+}
+
+.href-text-align-with-button-text {
+   line-height: 1.9em;
 }
