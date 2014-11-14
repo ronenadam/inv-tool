@@ -41,21 +41,3 @@ To run the tool:
    mysql -u root -p < ./inv-tool/sql/inv-tool_cleanup.sql
    
 
------------------------------
-Files I created to build the tool:
-
-in /css     custom.css
-
-in /html    header.html
-            footer.html
-
-in /img     favicon.ico
-
-in /php     add-item.php
-            common.php
-            delete-item.php
-            index.php
-            inventory.php
-            
-in /sql     inv-tool.sql
-            inv-tool_cleanup.sql
