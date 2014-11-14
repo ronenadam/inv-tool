@@ -40,8 +40,6 @@
          header("Location: index.php");
          die();
       } else {
-         $error_message = "Item was not saved.";
-         
          $display_error = true;
       }
    }
@@ -62,6 +60,8 @@
       
       <!-- Custom changes to Bootstrap -->
       <link rel="stylesheet" type="text/css" href="../css/custom.css">
+      
+      <script src="../js/jquery-1.11.1.min.js"></script>
    </head> 
    <body>
       <div id="header"><?php include("../html/header.html") ?></div>
@@ -72,7 +72,7 @@
             </div>
          <div class="col-xs-4"></div>
       </div>
-      <form action="./add-item.php" method="POST">
+      <form name="item_form" action="./add-item.php" method="POST">
          <div class="row">
             <input type="hidden" name="id" value="<?= $item['item_id'] ?>">
             <div class="row">
@@ -82,7 +82,7 @@
                   <input type="text" name="name" class="form-control input-sm" value="<?= $item['item_name'] ?>"><br>
                </div>   
                <div class="col-xs-4">
-                  <br>name
+                  <br><span id="name_msg" class="text-danger"></span>
                </div>
             </div>
             <div class="row">
@@ -92,7 +92,7 @@
                   <input type="text" name="price" class="form-control input-sm" value="<?= $item['item_price'] ?>"><br>
                </div>
                <div class="col-xs-4">
-                  <br>price
+                  <br><span id="price_msg" class="text-danger"></span>
                </div>
             </div>
             <div class="row">
@@ -102,7 +102,7 @@
                   <input type="text" name="color" class="form-control input-sm" value="<?= $item['item_color'] ?>"><br>
                </div>   
                <div class="col-xs-4">
-                  <br>color
+                  <br><span id="color_msg" class="text-danger"></span>
                </div>
             </div>
             <div class="row">
@@ -118,7 +118,7 @@
                   </select>
                </div>
                <div class="col-xs-4">
-                  <br>condition
+                  <br><span id="condition_msg" class="text-danger"></span>
                </div>
             </div>
          </div>
@@ -148,5 +148,57 @@
          ?>
       <div class="col-xs-4"></div>
       <div id="footer"><?php include("../html/footer.html") ?></div>
+      
+      <script>
+         function validateForm() {
+            var name = document.forms["item_form"]["name"].value;
+            var price = document.forms["item_form"]["price"].value;
+            var color = document.forms["item_form"]["color"].value;
+            var condition = document.forms["item_form"]["condition"].value;
+           
+            // name
+            name.trim();
+            
+            if (name === "") {
+               $("#name_msg").html("Name cannot be left blank");
+            } else {
+               $("#name_msg").html("");
+            }
+            
+            // price
+            price.trim();
+            
+            if (price === "") {
+               $("#price_msg").html("Price must be a number");
+            } else if (isNan(price)) {
+               $("#price_msg").html("Price cannot be left blank");
+            } else {
+               $("#price_msg").html("");
+            }
+           
+            // color
+            color.trim();
+            
+            if (color === "") {
+               $("#color_msg").html("Color cannot be left blank");
+            } else {
+               $("#color_msg").html("");
+            }
+            
+            // condition
+            if (condition === "") {
+               $("#condition_msg").html("Condition cannot be left blank");
+            } else {
+               $("#condition_msg").html("");
+            }
+         }
+         
+         $(document).ready(function() {
+            $("form").submit(function(e) {
+               validateForm();
+               e.preventDefault();
+            });
+         });
+      </script>
    </body>
 </html>
