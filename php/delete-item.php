@@ -51,11 +51,14 @@
       <link rel="stylesheet" type="text/css" href="../css/custom.css">
    </head> 
    <body>
+      <!-- Header -->
       <div id="header"><?php include("../html/header.html") ?></div>
-      <div class="container-fluid center-block">
+      
+      <!-- Content -->
          <div class="row">
-            <div class="container">
-               <div class="alert alert-danger text-center" id="warning">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-10">
+               <div class="alert alert-danger-custom text-center" id="warning">
                   <p><h4>Delete this item?</h4></p>
                </div> 
                <table class="table table-striped">
@@ -81,13 +84,22 @@
                </table>              
                <form action="./delete-item.php" method="POST">
                   <input type="hidden" name="item_id" value="<?= $item['item_id'] ?>">
-                  <input class="btn-link" type="submit" value="Delete this item" id="delete_item">
-                  <a href="./index.php" id="cancel_delete_item">Cancel</a>
+                  
+                  <div class="row">
+                     <div class="col-xs-2">
+                        <input class="btn-link" type="submit" value="Delete this item" id="delete_item">
+                     </div>
+                     <div class="col-xs-1 href-text-align-with-button-text">
+                        <a href="./index.php" id="cancel_delete_item">Cancel</a>
+                     </div>
+                  </div>
                </form>
-               
-            </div>
+           </div>
+           <div class="col-xs-1"></div>
          </div>
       </div>
+      
+      <!-- Footer -->
       <div id="footer"><?php include("../html/footer.html") ?></div>
    </body>
 </html>

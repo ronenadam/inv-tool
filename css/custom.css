@@ -47,3 +47,13 @@ thead {
 .href-text-align-with-button-text {
    line-height: 1.9em;
 }
+
+.text-danger-custom {
+   color: #DC143C;
+}
+
+.alert-danger-custom {
+   color: #DC143C;
+   border-color: #F8D0D8;
+   background-color: #FCE8EC;
+}
